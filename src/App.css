@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 500px;
+}
+.contents {
+  border: 3px solid rgb(129, 188, 228);
+}
+.nav {
+  display: flex;
+  height: 70px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  gap: 20px;
+  color: white;
+  font-size: 3rem;
+  font-weight: 500;
+  background-color: rgb(129, 188, 228);
+  padding: 0% 30px;
+}
+.nav-icon {
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.add-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+  gap: 7px;
+  height: 30px;
+}
+.add-input {
+  height: 100%;
+}
+.reset-btn,
+.add-btn {
+  background-color: rgb(22, 127, 197);
+  color: white;
+  height: 100%;
+  padding: 0.3em 0.5em;
+}
+.add-btn {
+  border-radius: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.habits {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 0px;
+  margin-top: 0;
+}
+
+.habit {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.5rem;
+  padding: 0.3em;
+  margin-left: 0;
+  list-style: none;
+}
+.nav-count,
+.habit-count {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  color: white;
+  border-radius: 50%;
+}
+.habit-count {
+  margin-left: 7px;
+  background-color: rgb(22, 127, 197);
+}
+.nav-count {
+  background-color: rgb(22, 127, 197);
+}
+
+.habit-button {
+  font-size: 2.5rem;
+  background-color: transparent;
+}
+
+.habit-button:hover {
+  opacity: 0.8;
+}
+
+.habit-increase,
+.habit-decrease {
+  color: rgb(22, 127, 197);
+}
+
+.habit-delete {
+  color: darkred;
+}
+
+.reset-area {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  height: 30px;
+}
+.reset-btn {
+  flex-grow: 1;
 }
