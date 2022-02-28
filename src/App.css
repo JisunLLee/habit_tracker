@@ -93,9 +93,17 @@ button {
 .nav-count {
   background-color: rgb(22, 127, 197);
 }
-
+.habit-buttons {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
 .habit-button {
   font-size: 2.5rem;
+  background-size: cover;
+  width: 2.5rem;
+  height: 2.5rem;
   background-color: transparent;
 }
 
@@ -103,12 +111,17 @@ button {
   opacity: 0.8;
 }
 
-.habit-increase,
+.habit-increase {
+  background-image: url('../public/plus.png');
+}
+
 .habit-decrease {
   color: rgb(22, 127, 197);
+  background-image: url('../public/minus.png');
 }
 
 .habit-delete {
+  background-image: url('../public/bin.png');
   color: darkred;
 }
 

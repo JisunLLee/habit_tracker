@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+// import { FontAwesomeIcon } from '@fortawesome/fontawesome-free';
 
 class Habit extends PureComponent {
   componentDidMount() {
@@ -32,21 +33,15 @@ class Habit extends PureComponent {
           <button
             className="habit-button habit-increase"
             onClick={this.handleIncrement}
-          >
-            <i className="fa-solid fa-square-plus"></i>
-          </button>
+          />
           <button
             className="habit-button habit-decrease"
             onClick={this.handleDecrement}
-          >
-            <i className="fa-solid fa-square-minus"></i>
-          </button>
+          />
           <button
             className="habit-button habit-delete"
             onClick={this.handleDelete}
-          >
-            <i className="fa-solid fa-trash-can"></i>
-          </button>
+          />
         </div>
       </li>
     );
