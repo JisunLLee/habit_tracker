@@ -13,24 +13,33 @@ class App extends Component {
   };
 
   handleAdd = (name) => {
-    const last_id = this.state.habits[this.state.habits.length - 1].id;
-    const habits = [...this.state.habits, { id: last_id + 1, name, count: 0 }];
+    const habits = this.state.habits.map((habit_) => habit_);
+    const id = this.state.habits[habits.length - 1].id + 1;
+    habits.push({ id, name, count: 0 });
     this.setState({ habits });
   };
 
   handleIncrement = (habit) => {
-    const habits = [...this.state.habits];
-    const idx = habits.indexOf(habit);
-    habits[idx].count++;
+    const habits = this.state.habits.map((habit_) => {
+      if (habit_.id === habit.id) {
+        return { ...habit_, count: habit_.count + 1 };
+      }
+      return habit_;
+    });
     this.setState({ habits });
   };
 
   handleDecrement = (habit) => {
-    const habits = [...this.state.habits];
-    const idx = habits.indexOf(habit);
-    const count = habits[idx].count - 1;
-    habits[idx].count = count < 0 ? 0 : count;
+    const habits = this.state.habits.map((habit_) => {
+      if (habit_.id === habit.id) {
+        const count = habit_.count - 1;
+        return { ...habit_, count: count < 0 ? 0 : count };
+      }
+      return habit_;
+    });
     this.setState({ habits });
+    const count = this.state.habits.filter((v) => v.count > 0).length;
+    if (count !== this.state.count) this.setState({ count });
   };
 
   handleDelete = (habit) => {
@@ -40,7 +49,9 @@ class App extends Component {
 
   handleCount = () => {
     const habits = this.state.habits.map((habit_) => {
-      habit_.count = 0;
+      if (habit_.count !== 0) {
+        return { ...habit_, count: 0 };
+      }
       return habit_;
     });
     this.setState({ habits });
@@ -61,7 +72,7 @@ class App extends Component {
       <div className="main">
         <div className="contents">
           <Nav
-            totalCount={this.state.habits.filter((v) => v.count > 0).length}
+            totalCount={this.state.habits.filter((v) => v.count !== 0).length}
           />
           <Habits
             habits={this.state.habits}
